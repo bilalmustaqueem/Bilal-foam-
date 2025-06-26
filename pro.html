@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Basics</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      width: 100%;
+      padding: 2px;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      margin-top: 80px;
+    }
+
+    nav {
+      width: 250px;
+      background-color: #f4f4f4;
+      padding: 20px;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    nav a {
+      display: block;
+      margin: 10px 0;
+      color: #333;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: #007bff;
+    }
+
+    .content {
+      margin-left: 270px;
+      padding: 20px;
+      flex: 1;
+    }
+
+    section {
+      display: none; /* Hide all sections initially */
+      margin-bottom: 50px;
+    }
+
+    section.active {
+      display: block; /* Show only the active section */
+    }
+
+    section h2 {
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>JavaScript Basics</h1>
+  </header>
+
+  <div class="container">
+    <nav>
+      <a data-target="introduction">JS Introduction</a>
+      <a data-target="where-to">JS Where To</a>
+      <a data-target="output">JS Output</a>
+      <a data-target="statements">JS Statements</a>
+      <a data-target="syntax">JS Syntax</a>
+      <a data-target="comments">JS Comments</a>
+      <a data-target="variables">JS Variables</a>
+    </nav>
+
+    <div class="content">
+      <section id="introduction" class="active">
+        <h2>JS Introduction</h2>
+        <p>JavaScript is a scripting language used to make web pages interactive...</p>
+      </section>
+
+      <section id="where-to">
+        <h2>JS Where To</h2>
+        <p>JavaScript code can be placed inside the &lt;script&gt; tag...</p>
+      </section>
+
+      <section id="output">
+        <h2>JS Output</h2>
+        <p>JavaScript can output data using methods like <code>document.write()</code>...</p>
+      </section>
+
+      <section id="statements">
+        <h2>JS Statements</h2>
+        <p>JavaScript statements are instructions...</p>
+      </section>
+
+      <section id="syntax">
+        <h2>JS Syntax</h2>
+        <p>JavaScript syntax is the set of rules that define a correctly structured program...</p>
+      </section>
+
+      <section id="comments">
+        <h2>JS Comments</h2>
+        <p>Comments are used to explain code...</p>
+      </section>
+
+      <section id="variables">
+        <h2>JS Variables</h2>
+        <p>Variables are containers for storing data values...</p>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('section');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const targetId = link.getAttribute('data-target');
+
+        sections.forEach(section => {
+          section.classList.remove('active'); // Hide all sections
+        });
+
+        document.getElementById(targetId).classList.add('active'); // Show clicked section
+      });
+    });
+  </script>
+
+</body>
+</html>
