@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Car List & Toggle</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <h1>Car Information</h1>
+  <form id="carForm">
+    <label>Make: <input type="text" id="make" required></label><br>
+    <label>Model: <input type="text" id="model" required></label><br>
+    <label>Year: <input type="number" id="year" required></label><br>
+    <button type="submit">Add Car</button>
+  </form>
+  <div id="carDetails">
+    <h2>Car List:</h2>
+    <ul id="carList"></ul>
+  </div>
+
+ 
+  <button onclick="toggleParagraph()">Toggle Info</button>
+  <p id="togglePara">or kuch add nahi kr skta .</p>
+
+  <script>
+    function Car(make, model, year) {
+      this.make = make;
+      this.model = model;
+      this.year = year;
+      this.getDetails = function() {
+        return `${this.make} ${this.model} (${this.year})`;
+      };
+    }
+
+  
+    document.getElementById("carForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+   
+      const make = document.getElementById("make").value;
+      const model = document.getElementById("model").value;
+      const year = document.getElementById("year").value;
+
+    
+      const newCar = new Car(make, model, year);
+
+    
+      const li = document.createElement("li");
+      li.textContent = newCar.getDetails();
+      document.getElementById("carList").appendChild(li);
+
+   
+      e.target.reset();
+    });
+    function toggleParagraph() {
+      const para = document.getElementById("togglePara");
+      if (para.style.display === "none") {
+        para.style.display = "block";
+      } else {
+        para.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
