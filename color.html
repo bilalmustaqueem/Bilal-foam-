@@ -1,18 +1,23 @@
-<!DOCTYPE html>
-<html>
-<body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Border test</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<style type="text/css">
 
-<p>Same as color name "Tomato":</p>
+#background { margin:0 auto; width:1024px; background:#FFF url(images/bg.gif) center repeat-y; min-height:400px; border:1px solid red;} /* content background */
+#wrapper { margin:0 auto; width:960px; background:#FFF; min-height:300px; margin-top:10px; margin-bottom:10px; position:relative; border:1px solid blue;}/*Content wrapper*/
 
-<h1 style="background-color:rgb(255, 99, 71);">rgb(255, 99, 71)</h1>
-<h1 style="background-color:#ff6347;">#ff6347</h1>
-<h1 style="background-color:hsl(9, 100%, 64%);">hsl(9, 100%, 64%)</h1>
 
-<p>Same as color name "Tomato", but 50% transparent:</p>
-<h1 style="background-color:rgba(255, 99, 71, 0.5);">rgba(255, 99, 71, 0.5)</h1>
-<h1 style="background-color:hsla(9, 100%, 64%, 0.5);">hsla(9, 100%, 64%, 0.5)</h1>
+</style>
+</head><body>
 
-<p>In addition to the predefined color names, colors can be specified using RGB, HEX, HSL, or even transparent colors using RGBA or HSLA color values.</p>
+<div id="background">
+  <div id="wrapper">
+   Testing 123...
+  </div>
+</div>
 
 </body>
 </html>

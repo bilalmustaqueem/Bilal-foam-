@@ -132,10 +132,10 @@
     <select id="priority">
       <option value="select">Select Priority</option>
       <option value="High">High</option>
-      <option value="Medium"selected>Medium</option>
+      <option value="Medium" selected>Medium</option>
       <option value="Low">Low</option>
     </select>
-    <input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="dueDate" />
+    <input placeholder="Date"  type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="dueDate" />
     <button onclick="addTask()">Add Task</button>
   </div>
 
@@ -151,7 +151,10 @@
 
   <script>
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    console.log('tasks', tasks)
     let originalTasks = [...tasks];
+        console.log('originalTasks', originalTasks)
+
     let editingIndex = -1;
 
     function saveTasks() {
@@ -227,7 +230,7 @@
         displayTasks(tasks);
       }
     }
-
+`
     function editTask(index) {
       const task = tasks[index];
       document.getElementById("name").value = task.name;
@@ -247,7 +250,7 @@
     }
 
     function sortTasks() {
-      originalTasks = [...tasks];
+      originalTasks = [...tasks]; 
       const priorityOrder = { High: 1, Medium: 2, Low: 3 };
       tasks.sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
       displayTasks(tasks);
@@ -267,4 +270,4 @@
     displayTasks(tasks);
   </script>
 </body>
-</html>
+</html> 
